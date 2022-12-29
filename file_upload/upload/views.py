@@ -6,7 +6,10 @@ from django.contrib import messages
 
 def home(request):
     books = Book.objects.all()
-    return render(request, 'home.html', {'books': books})
+    if books.exists():              #this checks if user has uploaded any file or not  
+        return render(request, 'home.html', {'books': books})
+    else:                #if user has not uploaded any file it will redirect it to upload file section
+        return redirect('/add/')
 
 
 def add_book(request):
