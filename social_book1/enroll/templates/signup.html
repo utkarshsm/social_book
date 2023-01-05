@@ -1,0 +1,22 @@
+<!DOCTYPE html>  
+{% load static %}
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width","initial-scale=1.0"
+    <link rel="stylesheet" href="{%static 'style/style.css'%}" />   {% comment %} using the link tag to integrate the static css style {% endcomment %}
+    <title>SignUP</title>  
+</head>  
+<body>
+  <img src="{% static 'images/socialbook.jpg' %}" alt="dj" />  
+  <form action="" method="POST" novalidate>  
+    {% csrf_token %}
+    {% for fm in form  %}
+    {{fm.label_tag}} {{fm}} {{fm.errors | striptags}} <br><br>
+    {% endfor %} 
+    <input type="submit" value="submit">
+  </form>
+<a href ="{% url 'login' %}" >Login</a> 
+<script src="{%static 'scripts/all.js'%}" /script> 
+</body>  
+</html> 
