@@ -20,7 +20,7 @@
         <table class="table">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">Cover</th>
+                    <th scope="col">ID</th>
                     <th scope="col">Title</th>
                     <th scope="col">Author</th>
                     <th scope="col">Category</th>
@@ -30,10 +30,11 @@
             <tbody>
                 {% for book in books %}
                 <tr>
-                    <td><img src="{{ book.cover.url }}" style="height:100px" alt="Cover"></td>
+                    {% comment %} <td><img src="{{ book.cover.url }}" style="height:100px" alt="Cover"></td> {% endcomment %}
+                    <td>{{ book.id }}</td>
                     <td>{{ book.title }}</td>
                     <td>{{ book.author }}</td>
-                    <td>{{ book.author }}</td>
+                    <td>{{ book.category }}</td>
                     <td class="form-inline">
                         <a class="btn btn-primary mr-2" href="{{ book.pdf.url }}" role="button">Download</a>
                         <form action="{% url 'delete_book' book.id %}" method="POST">

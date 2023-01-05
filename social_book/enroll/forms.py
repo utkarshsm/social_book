@@ -6,9 +6,9 @@ from .models import Book
 
 class SignUpForm(UserCreationForm):
     class Meta:
-        model = User
-        fields = ['username','first_name','last_name','email']
-        labels = {'email':'Email'}
+        model = CustomUser
+        fields = ['email','age','birth_date','address','public_visibility']
+        # labels = {'email':'Email'}
         
 class CustomUserCreationForm(UserCreationForm):
 

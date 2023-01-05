@@ -26,10 +26,11 @@ urlpatterns = [
     path('profile/', views.user_profile , name='profile'),
     path('reguser',views.authsell),
     path('', include('enroll.urls')),
-    # path(r'^auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.authtoken')),
     path('auth/', include('djoser.urls.jwt')),
+    path('ufile',views.ufileView.as_view(), name='ufile'),
+
     
 ]
 if settings.DEBUG:

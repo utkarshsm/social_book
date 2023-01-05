@@ -13,6 +13,7 @@ class CustomUser(AbstractUser):
     birth_date = models.DateField(null=True)
     address = models.CharField(max_length=50,null=True)
     
+    
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
@@ -23,6 +24,7 @@ class CustomUser(AbstractUser):
         return self.email
 
 class Book(models.Model):
+    # fk = models.ForeignKey(CustomUser, on_delete=models.SET_NULL,null=True )
     title = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
     category = models.CharField(max_length=50)
